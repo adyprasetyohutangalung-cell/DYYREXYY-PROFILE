@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Maintenance · dyrexyyyy</title>
+  <title>dyrexyyyy · profile</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts -->
@@ -38,7 +38,6 @@
       overflow-x: hidden;
     }
 
-    /* Banner video */
     .banner {
       position: relative;
       width: 100%;
@@ -70,7 +69,7 @@
       pointer-events: none;
     }
 
-    /* Notifikasi suara */
+    /* Notifikasi petunjuk suara */
     .sound-hint {
       position: absolute;
       top: 20px;
@@ -90,7 +89,7 @@
       align-items: center;
       gap: 8px;
       white-space: nowrap;
-      animation: fadeInOut 2s infinite alternate;
+      animation: fadeInOut 5s infinite alternate;
     }
     .sound-hint i {
       color: #ef4444;
@@ -101,126 +100,284 @@
       100% { opacity: 1; }
     }
 
-    /* Konten utama maintenance */
-    .maintenance-content {
-      text-align: center;
-      padding: 40px 20px 30px;
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -70px;
+      z-index: 10;
+      position: relative;
     }
 
-    .maintenance-title {
-      font-size: 2.8rem;
+    .profile-pic-wrapper {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #0a2f6c, #7a0f0f);
+      padding: 5px;
+      box-shadow: 0 10px 25px rgba(0, 102, 255, 0.5), 0 0 20px #ff3333;
+      animation: borderPulse 3s infinite alternate;
+    }
+
+    @keyframes borderPulse {
+      0% { box-shadow: 0 10px 25px rgba(0, 102, 255, 0.5), 0 0 15px #ff3333; }
+      100% { box-shadow: 0 15px 35px rgba(255, 51, 51, 0.7), 0 0 30px #0066ff; }
+    }
+
+    .profile-pic {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #121212;
+      animation: spinPiring 8s infinite linear;
+      transform-style: preserve-3d;
+      backface-visibility: visible;
+    }
+
+    @keyframes spinPiring {
+      0% { transform: perspective(600px) rotateY(0deg); }
+      100% { transform: perspective(600px) rotateY(360deg); }
+    }
+
+    .identity {
+      text-align: center;
+      margin-top: 15px;
+      padding: 0 16px;
+    }
+
+    .identity h1 {
+      font-size: 2.5rem;
       font-weight: 700;
       background: linear-gradient(135deg, #3b82f6, #ef4444);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
+      letter-spacing: 2px;
       text-shadow: 0 0 10px #3b82f6;
     }
 
-    .maintenance-sub {
-      font-size: 1.2rem;
+    .identity .username {
+      font-size: 1.3rem;
       color: #aaa;
-      margin-bottom: 30px;
-      letter-spacing: 1px;
+      font-weight: 300;
+      background: rgba(255,255,255,0.05);
+      display: inline-block;
+      padding: 0.2rem 1.5rem;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+      border: 1px solid #2a2a2a;
+      margin-top: 5px;
     }
 
-    /* Timer countdown */
-    .countdown-container {
+    .identity .phone {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ccc;
+      font-family: monospace;
+      background: #1a1a1a;
+      padding: 8px 18px;
+      border-radius: 50px;
+      display: inline-block;
+      border-left: 4px solid #3b82f6;
+      border-right: 4px solid #ef4444;
+    }
+
+    .action-buttons {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
+      margin: 25px 16px 30px;
       flex-wrap: wrap;
-      margin: 30px 0 20px;
     }
 
-    .time-box {
-      background: #1a1a1a;
-      border-radius: 20px;
-      padding: 20px 15px;
-      min-width: 120px;
+    .btn {
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: white;
+      background: #1f1f1f;
       border: 1px solid #333;
-      box-shadow: 0 0 20px rgba(59,130,246,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.5);
     }
-    .time-box span {
-      font-size: 3rem;
+
+    .btn i { font-size: 1.2rem; }
+    .btn-wa { background: #0d6cff; border-color: #0a58ca; }
+    .btn-wa:hover { background: #0a58ca; transform: translateY(-3px); }
+    .btn-call { background: #dc2626; border-color: #b91c1c; }
+    .btn-call:hover { background: #b91c1c; transform: translateY(-3px); }
+    .btn-share { background: #1f1f1f; border-color: #3b82f6; color: #3b82f6; }
+    .btn-share:hover { background: #3b82f6; color: white; transform: translateY(-3px); }
+
+    .info-panel {
+      padding: 30px 16px;
+      background: #0f0f0f;
+      border-top: 1px solid #232323;
+      border-bottom: 1px solid #232323;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      border-left: 5px solid #3b82f6;
+      padding-left: 15px;
+    }
+    .section-title i { color: #ef4444; }
+
+    .spotify-embed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .spotify-embed-list iframe {
+      width: 100%;
+      height: 80px;
+      border-radius: 12px;
+      border: none;
+      background: transparent;
+    }
+
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .social-card {
+      background: #181818;
+      border-radius: 30px;
+      padding: 18px 20px;
+      min-width: 140px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border: 1px solid #2e2e2e;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: white;
+      flex: 1 1 auto;
+    }
+    .social-card i { font-size: 2rem; }
+    .social-card .label { font-weight: 600; font-size: 1rem; }
+    .social-card .handle { font-size: 0.8rem; color: #aaa; }
+    .social-card.instagram { border-left: 5px solid #e1306c; }
+    .social-card.tiktok { border-left: 5px solid #25f4ee; }
+    .social-card.email { border-left: 5px solid #fbbc05; }
+    .social-card:hover { transform: scale(1.02); background: #222; }
+
+    .donate-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .btn-donate {
+      background: linear-gradient(145deg, #0a2f6c, #7a0f0f);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.3rem;
+      border-radius: 60px;
+      color: white;
       font-weight: 700;
+      box-shadow: 0 0 25px #3b82f6;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .btn-donate:hover {
+      box-shadow: 0 0 35px #ef4444;
+      transform: scale(1.02);
+    }
+
+    .total-likes {
+      background: #0c0c0c;
+      padding: 25px 16px;
+      text-align: center;
+    }
+    .likes-count {
+      font-size: 3.5rem;
+      font-weight: 800;
       background: linear-gradient(135deg, #3b82f6, #ef4444);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1.2;
     }
-    .time-label {
-      font-size: 1rem;
+    .likes-label {
+      font-size: 1.2rem;
       color: #888;
+      letter-spacing: 2px;
       text-transform: uppercase;
+    }
+    .likes-label i { color: #ef4444; margin-right: 8px; }
+
+    .redeem-section {
+      background: #0f0f0f;
+      padding: 30px 16px;
+      text-align: center;
+      border-top: 1px solid #232323;
+    }
+    .redeem-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .redeem-code-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: #1a1a1a;
+      padding: 10px 20px;
+      border-radius: 60px;
+      max-width: 400px;
+      margin: 0 auto;
+      border: 1px solid #333;
+    }
+    .redeem-code-box span {
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: monospace;
+      background: linear-gradient(135deg, #3b82f6, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       letter-spacing: 2px;
     }
-
-    /* Loading bar / spinner */
-    .loading-section {
-      margin: 40px auto 30px;
-      max-width: 400px;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 20px;
-      background: #1f1f1f;
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid #333;
-      box-shadow: 0 0 15px #3b82f6;
-    }
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #3b82f6, #ef4444);
-      border-radius: 30px;
-      animation: loadingProgress 3s infinite alternate ease-in-out;
-    }
-    @keyframes loadingProgress {
-      0% { width: 10%; }
-      100% { width: 90%; }
-    }
-    .loading-text {
-      margin-top: 15px;
+    .btn-copy {
+      background: #2a2a2a;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 50px;
       font-size: 1rem;
-      color: #aaa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .loading-text i {
-      color: #ef4444;
-      animation: spin 2s infinite linear;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Informasi tambahan */
-    .info-message {
-      background: #0f0f0f;
-      padding: 20px;
-      border-top: 1px solid #232323;
-      border-bottom: 1px solid #232323;
-      margin-top: 20px;
-    }
-    .info-message p {
-      color: #ccc;
-      font-size: 1rem;
-    }
-    .info-message a {
-      color: #3b82f6;
-      text-decoration: none;
       font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      border: 1px solid #3b82f6;
     }
-    .info-message a:hover {
-      text-decoration: underline;
+    .btn-copy:hover {
+      background: #3b82f6;
+      transform: scale(1.02);
     }
+    .btn-copy i { font-size: 1.2rem; }
 
-    /* Catatan footer */
     .catbox-note {
       font-size: 0.75rem;
       color: #444;
@@ -229,21 +386,16 @@
       background: #080808;
       border-top: 1px solid #1f1f1f;
     }
-    .catbox-note i {
-      color: #3b82f6;
-    }
+    .catbox-note a { color: #3b82f6; text-decoration: none; }
 
     @media (max-width: 600px) {
-      .maintenance-title {
-        font-size: 2rem;
+      .profile-pic-wrapper {
+        width: 130px;
+        height: 130px;
       }
-      .time-box {
-        min-width: 70px;
-        padding: 15px 10px;
-      }
-      .time-box span {
-        font-size: 2rem;
-      }
+      .identity h1 { font-size: 2rem; }
+      .btn { padding: 10px 18px; }
+      .likes-count { font-size: 2.8rem; }
       .sound-hint {
         font-size: 0.8rem;
         padding: 6px 12px;
@@ -257,143 +409,149 @@
 <body>
   <div class="container">
 
-    <!-- BANNER VIDEO AUTOPLAY MUTED (dengan petunjuk suara) -->
+    <!-- BANNER VIDEO AUTOPLAY MUTED -->
     <div class="banner">
       <video autoplay loop muted playsinline preload="auto" id="bannerVideo">
-        <source src="https://files.catbox.moe/h0ok9u.mp4" type="video/mp4">
+        <source src="https://files.catbox.moe/xlt0u4.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div class="banner-overlay"></div>
-      <!-- Notifikasi: klik di mana saja untuk suara -->
+      <!-- Notifikasi petunjuk suara (akan hilang setelah interaksi) -->
       <div class="sound-hint" id="soundHint">
         <i class="fas fa-volume-mute"></i> Klik di mana saja untuk mengaktifkan suara video
       </div>
     </div>
 
-    <!-- Konten Maintenance -->
-    <div class="maintenance-content">
-      <h1 class="maintenance-title">SEDANG DALAM PEMELIHARAAN</h1>
-      <div class="maintenance-sub">Kami akan segera kembali. Terima kasih atas kesabaran Anda.</div>
-
-      <!-- COUNTDOWN 3 HARI -->
-      <div class="countdown-container" id="countdown">
-        <div class="time-box">
-          <span id="days">03</span>
-          <div class="time-label">Hari</div>
-        </div>
-        <div class="time-box">
-          <span id="hours">00</span>
-          <div class="time-label">Jam</div>
-        </div>
-        <div class="time-box">
-          <span id="minutes">00</span>
-          <div class="time-label">Menit</div>
-        </div>
-        <div class="time-box">
-          <span id="seconds">00</span>
-          <div class="time-label">Detik</div>
-        </div>
+    <!-- FOTO PROFIL + ANIMASI -->
+    <div class="profile-section">
+      <div class="profile-pic-wrapper">
+        <img class="profile-pic" src="https://files.catbox.moe/t7ld3k.png" alt="profile">
       </div>
-
-      <!-- LOADING ANIMATION -->
-      <div class="loading-section">
-        <div class="progress-bar">
-          <div class="progress-fill"></div>
-        </div>
-        <div class="loading-text">
-          <i class="fas fa-spinner"></i> Sedang memuat pembaruan...
-        </div>
+      <div class="identity">
+        <h1>ADY HANSOME</h1>
+        <div class="username">@dyrexyyyy</div>
+        <div class="phone"><i class="fas fa-phone-alt" style="color: #3b82f6; margin-right: 8px;"></i> +62 857-6320-1429</div>
       </div>
     </div>
 
-    <!-- Informasi tambahan (opsional) -->
-    <div class="info-message">
-      <p><i class="fas fa-tools" style="color: #ef4444; margin-right: 8px;"></i> Tim kami sedang melakukan peningkatan sistem. Untuk informasi lebih lanjut, hubungi <a href="https://wa.me/6285763201429" target="_blank">WhatsApp</a> atau <a href="https://www.instagram.com/dyyrexyyyy" target="_blank">Instagram</a>.</p>
+    <!-- TOMBOL KIRIM PESAN, TELEPON, BAGIKAN -->
+    <div class="action-buttons">
+      <a href="https://wa.me/6285763201429?text=Halo%20dyrexyyyy!" class="btn btn-wa" id="waBtn" target="_blank"><i class="fab fa-whatsapp"></i> Kirim pesan</a>
+      <a href="tel:+6285763201429" class="btn btn-call" id="callBtn"><i class="fas fa-phone-alt"></i> Telepon</a>
+      <a href="#" class="btn btn-share" id="shareBtn" onclick="navigator.share? navigator.share({title:'dyrexyyyy', text:'Profil keren', url:window.location.href}) : alert('Bagikan link ini: '+window.location.href); return false;"><i class="fas fa-share-alt"></i> Bagikan</a>
     </div>
 
-    <!-- Catatan footer -->
+    <!-- PANEL INFO -->
+    <div class="info-panel">
+
+      <!-- 3 LAGU SPOTIFY -->
+      <div class="section-title"><i class="fab fa-spotify"></i> 3 lagu favoritku</div>
+      <div class="spotify-embed-list">
+        <iframe src="https://open.spotify.com/embed/album/5Dwl7DzGeKt0iSXXwefCIX" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/album/7rBGkbCvrkAAgO9CKGxEuo" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/track/5VyWqCgmRSa1o364B4UGI8" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+      <!-- KONTAK SOSMED -->
+      <div class="section-title"><i class="fas fa-globe"></i> sosial media</div>
+      <div class="social-grid">
+        <a href="https://www.instagram.com/dyyrexyyyy?igsh=MWU4ZjZyZGIwbzF0MQ==" class="social-card instagram" target="_blank"><i class="fab fa-instagram"></i><div><div class="label">Instagram</div><div class="handle">@dyrexyyyy</div></div></a>
+        <a href="https://www.tiktok.com/@adi4meeee?_r=1&_t=ZS-93ubowLVyKd" class="social-card tiktok" target="_blank"><i class="fab fa-tiktok"></i><div><div class="label">TikTok</div><div class="handle">@adi4mee</div></div></a>
+        <a href="mailto:mrti21793@gmail.com" class="social-card email" target="_blank"><i class="fas fa-envelope"></i><div><div class="label">Email</div><div class="handle">mrti21793@gmail.com</div></div></a>
+      </div>
+
+      <!-- DONATE -->
+      <div class="donate-section">
+        <a href="https://sociabuzz.com/justyo_tanzz/tribe?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAP9NZ9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaeXw-LLTAIgnJOrTxPazINk_zjyYVNkP49q65_ZmCzUNskCqOeX5hhA9IC8Vg_aem_K9aUcYjgzRviGgNRcMMsaw" class="btn-donate" target="_blank"><i class="fas fa-heart"></i> Donate via SocialBuzz <i class="fas fa-arrow-right"></i></a>
+        <p style="color: #555; margin-top: 10px; font-size: 0.9rem;">support SocialBuzz • #berbagi</p>
+      </div>
+    </div>
+
+    <!-- TOTAL LIKES -->
+    <div class="total-likes">
+      <div class="likes-count">2.030.000</div>
+      <div class="likes-label"><i class="fas fa-heart" style="color: #ef4444;"></i> total penyuka web ini</div>
+    </div>
+
+    <!-- KODE REDEEM (ADY HANSOME) DENGAN TOMBOL SALIN -->
+    <div class="redeem-section">
+      <div class="redeem-title"><i class="fas fa-gift" style="color: #ef4444;"></i> Kode Redeem Spesial</div>
+      <div class="redeem-code-box">
+        <span id="redeemCode">ADY HANSOME</span>
+        <button class="btn-copy" id="copyBtn" onclick="copyRedeemCode()"><i class="fas fa-copy"></i> Salin Kode</button>
+      </div>
+      <p style="color: #666; margin-top: 15px; font-size: 0.9rem;">Gunakan kode ini untuk mendapatkan hadiah spesial!</p>
+    </div>
+
+    <!-- catatan catbox -->
     <div class="catbox-note">
-      <i class="fas fa-image"></i> 2026-2027 © dyrexyyyy <strong>DNCZ</strong> · MAINTENANCE MODE <i class="fas fa-video" style="color: #ef4444;"></i>
+      <i class="fas fa-image" style="color: #3b82f6;"></i> 2026-2027 © dyrexyyyy<strong>DNCZ</strong> ADY HANSOME<i class="fas fa-video" style="color: #ef4444;"></i> TERIMAKASIH 
     </div>
 
   </div>
 
   <script>
-    // ========== COUNTDOWN 3 HARI ==========
-    // Hitung target waktu: sekarang + 3 hari
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 3);
-    targetDate.setHours(0, 0, 0, 0); // Set ke tengah malam (bisa disesuaikan)
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance < 0) {
-        // Jika sudah lewat, reset ke 3 hari lagi (atau tampilkan 00)
-        document.getElementById('days').innerText = '00';
-        document.getElementById('hours').innerText = '00';
-        document.getElementById('minutes').innerText = '00';
-        document.getElementById('seconds').innerText = '00';
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById('days').innerText = days.toString().padStart(2, '0');
-      document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+    function copyRedeemCode() {
+      const code = document.getElementById('redeemCode').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Kode redeem berhasil disalin: ' + code);
+      }).catch(err => {
+        alert('Gagal menyalin kode. Salin manual: ' + code);
+      });
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // ========== UNMUTE VIDEO SETELAH INTERAKSI ==========
-    const video = document.getElementById('bannerVideo');
-    const hint = document.getElementById('soundHint');
-
+    // Fungsi untuk mengaktifkan suara video dan menyembunyikan notifikasi
     function unmuteVideo() {
+      const video = document.getElementById('bannerVideo');
+      const hint = document.getElementById('soundHint');
       if (video) {
         video.muted = false;
         video.volume = 1.0;
-        video.play().catch(e => console.log('Play error:', e));
+        video.play().catch(e => console.log('Play setelah unmute gagal:', e));
       }
       if (hint) {
-        hint.style.display = 'none'; // sembunyikan notifikasi
+        hint.style.display = 'none'; // hilangkan notifikasi
       }
     }
 
     // Autoplay muted di awal
-    window.addEventListener('load', () => {
+    window.addEventListener('load', function() {
+      const video = document.getElementById('bannerVideo');
       if (video) {
         video.muted = true;
-        video.play().catch(e => console.log('Autoplay muted gagal, tapi ok', e));
+        video.play().catch(e => console.log('Autoplay muted gagal, tapi tidak masalah', e));
       }
     });
 
-    // Interaksi: klik di mana saja pada dokumen (hanya sekali)
-    document.addEventListener('click', function onceClick() {
-      unmuteVideo();
-      document.removeEventListener('click', onceClick);
-    }, { once: true });
+    // Kumpulkan semua elemen yang bisa menjadi trigger interaksi
+    const triggerElements = [
+      document.getElementById('waBtn'),
+      document.getElementById('callBtn'),
+      document.getElementById('shareBtn'),
+      document.getElementById('copyBtn'),
+      ...document.querySelectorAll('.social-card'),
+      document.querySelector('.btn-donate')
+    ].filter(el => el);
 
-    document.addEventListener('touchstart', function onceTouch() {
-      unmuteVideo();
-      document.removeEventListener('touchstart', onceTouch);
-    }, { once: true });
-
-    // Juga tambahkan listener ke elemen-elemen penting (opsional)
-    const importantElements = document.querySelectorAll('a, button, .social-card, .btn-donate');
-    importantElements.forEach(el => {
-      el.addEventListener('click', function (e) {
+    // Pasang event listener ke setiap elemen trigger
+    triggerElements.forEach(el => {
+      el.addEventListener('click', function onceHandler(e) {
         unmuteVideo();
-        // Tidak perlu remove karena sudah di-handle global, tapi tak apa
+        el.removeEventListener('click', onceHandler);
       });
     });
+
+    // Fallback: klik di area mana pun juga aktifkan suara (hanya sekali)
+    document.addEventListener('click', function firstClickHandler() {
+      unmuteVideo();
+      document.removeEventListener('click', firstClickHandler);
+    }, { once: true });
+
+    // Untuk perangkat sentuh
+    document.addEventListener('touchstart', function firstTouchHandler() {
+      unmuteVideo();
+      document.removeEventListener('touchstart', firstTouchHandler);
+    }, { once: true });
   </script>
 </body>
 </html>
