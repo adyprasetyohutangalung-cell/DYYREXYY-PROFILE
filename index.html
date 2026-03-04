@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>dyrexyyyy · profile</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #000;
+      font-family: 'Poppins', sans-serif;
+      color: #f0f0f0;
+      line-height: 1.5;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* kontainer utama memenuhi layar, tanpa bingkai luar */
+    .container {
+      width: 100%;
+      max-width: 100%;
+      background: #0a0a0a; /* hitam pekat */
+      box-shadow: none;
+      overflow-x: hidden;
+    }
+
+    /* banner video full lebar */
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 260px; /* sedikit lebih besar untuk kesan penuh */
+      overflow: hidden;
+      background: #000;
+      border-bottom: 3px solid #1e3a8a;
+    }
+
+    .banner video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      filter: brightness(0.7) contrast(1.1);
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(0,0,0,0.8) 100%);
+      z-index: 2;
+    }
+
+    /* profile picture wrapper (bingkai) */
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -70px;
+      z-index: 10;
+      position: relative;
+    }
+
+    .profile-pic-wrapper {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #0a2f6c, #7a0f0f);
+      padding: 5px;
+      box-shadow: 0 10px 25px rgba(0, 102, 255, 0.5), 0 0 20px #ff3333;
+      animation: borderPulse 3s infinite alternate;
+    }
+
+    @keyframes borderPulse {
+      0% { box-shadow: 0 10px 25px rgba(0, 102, 255, 0.5), 0 0 15px #ff3333; }
+      100% { box-shadow: 0 15px 35px rgba(255, 51, 51, 0.7), 0 0 30px #0066ff; }
+    }
+
+    .profile-pic {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #121212;
+      /* animasi putar seperti piring berdiri (rotateY) */
+      animation: spinPiring 8s infinite linear;
+      transform-style: preserve-3d;
+      backface-visibility: visible;
+    }
+
+    @keyframes spinPiring {
+      0% { transform: perspective(600px) rotateY(0deg); }
+      100% { transform: perspective(600px) rotateY(360deg); }
+    }
+
+    .identity {
+      text-align: center;
+      margin-top: 15px;
+      padding: 0 16px;
+    }
+
+    .identity h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #3b82f6, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #3b82f6;
+    }
+
+    .identity .username {
+      font-size: 1.3rem;
+      color: #aaa;
+      font-weight: 300;
+      background: rgba(255,255,255,0.05);
+      display: inline-block;
+      padding: 0.2rem 1.5rem;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
+      border: 1px solid #2a2a2a;
+      margin-top: 5px;
+    }
+
+    .identity .phone {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ccc;
+      font-family: monospace;
+      background: #1a1a1a;
+      padding: 8px 18px;
+      border-radius: 50px;
+      display: inline-block;
+      border-left: 4px solid #3b82f6;
+      border-right: 4px solid #ef4444;
+    }
+
+    /* action buttons */
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 16px 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: white;
+      background: #1f1f1f;
+      border: 1px solid #333;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    }
+
+    .btn i { font-size: 1.2rem; }
+    .btn-wa { background: #0d6cff; border-color: #0a58ca; }
+    .btn-wa:hover { background: #0a58ca; transform: translateY(-3px); }
+    .btn-call { background: #dc2626; border-color: #b91c1c; }
+    .btn-call:hover { background: #b91c1c; transform: translateY(-3px); }
+    .btn-share { background: #1f1f1f; border-color: #3b82f6; color: #3b82f6; }
+    .btn-share:hover { background: #3b82f6; color: white; transform: translateY(-3px); }
+
+    /* panel info */
+    .info-panel {
+      padding: 30px 16px;
+      background: #0f0f0f;
+      border-top: 1px solid #232323;
+      border-bottom: 1px solid #232323;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      border-left: 5px solid #3b82f6;
+      padding-left: 15px;
+    }
+    .section-title i { color: #ef4444; }
+
+    /* spotify embed list */
+    .spotify-embed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .spotify-embed-list iframe {
+      width: 100%;
+      height: 80px; /* ukuran compact player */
+      border-radius: 12px;
+      border: none;
+      background: transparent;
+    }
+
+    /* sosial grid */
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .social-card {
+      background: #181818;
+      border-radius: 30px;
+      padding: 18px 20px;
+      min-width: 140px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border: 1px solid #2e2e2e;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: white;
+      flex: 1 1 auto;
+    }
+    .social-card i { font-size: 2rem; }
+    .social-card .label { font-weight: 600; font-size: 1rem; }
+    .social-card .handle { font-size: 0.8rem; color: #aaa; }
+    .social-card.instagram { border-left: 5px solid #e1306c; }
+    .social-card.tiktok { border-left: 5px solid #25f4ee; }
+    .social-card.email { border-left: 5px solid #fbbc05; }
+    .social-card:hover { transform: scale(1.02); background: #222; }
+
+    /* donate */
+    .donate-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .btn-donate {
+      background: linear-gradient(145deg, #0a2f6c, #7a0f0f);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.3rem;
+      border-radius: 60px;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 0 25px #3b82f6;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .btn-donate:hover {
+      box-shadow: 0 0 35px #ef4444;
+      transform: scale(1.02);
+    }
+
+    /* total likes */
+    .total-likes {
+      background: #0c0c0c;
+      padding: 25px 16px;
+      text-align: center;
+    }
+    .likes-count {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #3b82f6, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+    .likes-label {
+      font-size: 1.2rem;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .likes-label i { color: #ef4444; margin-right: 8px; }
+
+    /* catatan catbox */
+    .catbox-note {
+      font-size: 0.75rem;
+      color: #444;
+      text-align: center;
+      padding: 16px;
+      background: #080808;
+      border-top: 1px solid #1f1f1f;
+    }
+    .catbox-note a { color: #3b82f6; text-decoration: none; }
+
+    /* responsif: pastikan tidak ada margin/padding bodi */
+    @media (max-width: 600px) {
+      .profile-pic-wrapper {
+        width: 130px;
+        height: 130px;
+      }
+      .identity h1 { font-size: 2rem; }
+      .btn { padding: 10px 18px; }
+      .likes-count { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- BANNER VIDEO (catbox link) -->
+    <div class="banner">
+      <!-- GANTI src DENGAN LINK VIDEO CATBOX ANDA -->
+      <video autoplay muted loop playsinline>
+        <source src="https://files.catbox.moe/fnne23.mp4" type="video/mp4">
+        <!-- fallback: jika tidak ada video, cukup overlay -->
+      </video>
+      <div class="banner-overlay"></div>
+    </div>
+
+    <!-- FOTO PROFIL + ANIMASI -->
+    <div class="profile-section">
+      <div class="profile-pic-wrapper">
+        <!-- GANTI src DENGAN LINK GAMBAR CATBOX ANDA -->
+        <img class="profile-pic" src="https://files.catbox.moe/t7ld3k.png" alt="profile" title="ganti link catbox">
+      </div>
+      <div class="identity">
+        <h1>ADY HANSOME</h1>
+        <div class="username">@dyrexyyyy</div>
+        <div class="phone"><i class="fas fa-phone-alt" style="color: #3b82f6; margin-right: 8px;"></i> +62 857-6320-1429</div>
+      </div>
+    </div>
+
+    <!-- TOMBOL KIRIM PESAN, TELEPON, BAGIKAN -->
+    <div class="action-buttons">
+      <a href="https://wa.me/6285763201429?text=Halo%20dyrexyyyy!" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Kirim pesan</a>
+      <a href="tel:+6285763201429" class="btn btn-call"><i class="fas fa-phone-alt"></i> Telepon</a>
+      <a href="#" class="btn btn-share" onclick="navigator.share? navigator.share({title:'dyrexyyyy', text:'Profil keren', url:window.location.href}) : alert('Bagikan link ini: '+window.location.href); return false;"><i class="fas fa-share-alt"></i> Bagikan</a>
+    </div>
+
+    <!-- PANEL INFO -->
+    <div class="info-panel">
+
+      <!-- 3 LAGU SPOTIFY DENGAN PLAYER (embed) -->
+      <div class="section-title"><i class="fab fa-spotify"></i> 3 lagu favoritku</div>
+      <div class="spotify-embed-list">
+        <!-- Ganti setiap src dengan link embed track Spotify pilihanmu -->
+        <iframe src="https://open.spotify.com/embed/album/5Dwl7DzGeKt0iSXXwefCIX" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/album/7rBGkbCvrkAAgO9CKGxEuo" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/track/5VyWqCgmRSa1o364B4UGI8" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+      <!-- KONTAK: IG, TIKTOK, EMAIL -->
+      <div class="section-title"><i class="fas fa-globe"></i> sosial media</div>
+      <div class="social-grid">
+        <a href="https://www.instagram.com/dyyrexyyyy?igsh=MWU4ZjZyZGIwbzF0MQ==" class="social-card instagram" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <div>
+            <div class="label">Instagram</div>
+            <div class="handle">@dyrexyyyy</div>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@adi4meeee?_r=1&_t=ZS-93ubowLVyKd" class="social-card tiktok" target="_blank">
+          <i class="fab fa-tiktok"></i>
+          <div>
+            <div class="label">TikTok</div>
+            <div class="handle">@adi4mee</div>
+          </div>
+        </a>
+        <a href="mailto: mrti21793@gmail.com" class="social-card email" target="_blank">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <div class="label">Email</div>
+            <div class="handle">mrti21793@gmail.com</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- LINK DONATE (SOCIALBUZZ) -->
+      <div class="donate-section">
+        <a href="https://sociabuzz.com/justyo_tanzz/tribe?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAP9NZ9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaeXw-LLTAIgnJOrTxPazINk_zjyYVNkP49q65_ZmCzUNskCqOeX5hhA9IC8Vg_aem_K9aUcYjgzRviGgNRcMMsaw" class="btn-donate" target="_blank">
+          <i class="fas fa-heart"></i> Donate via SocialBuzz <i class="fas fa-arrow-right"></i>
+        </a>
+        <p style="color: #555; margin-top: 10px; font-size: 0.9rem;">support SocialBuzz • #berbagi</p>
+      </div>
+    </div>
+
+    <!-- TOTAL YANG MENYUKAI WEB: 2030 RIBU = 2.030.000 -->
+    <div class="total-likes">
+      <div class="likes-count">2.030.000</div>
+      <div class="likes-label"><i class="fas fa-heart" style="color: #ef4444;"></i> total penyuka web ini</div>
+    </div>
+
+    <!-- catatan catbox -->
+    <div class="catbox-note">
+      <i class="fas fa-image" style="color: #3b82f6;"></i> 2026-2027 © dyrexyyyy<strong>DNCZ</strong> ADY HANSOME<i class="fas fa-video" style="color: #ef4444;"></i> TERIMAKASIH 
+    </div>
+
+  </div>
+</body>
+</html>
