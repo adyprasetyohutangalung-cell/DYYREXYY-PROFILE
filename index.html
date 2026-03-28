@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>dyrexyyyy · profile</title>
+  <title>dyrexyyyy · profile · pro tools</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
   <!-- QR Code Library -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
   <style>
@@ -57,13 +57,13 @@
 
     /* Sidebar */
     .sidebar {
-      width: 270px;
+      width: 280px;
       background: rgba(26, 26, 26, 0.98);
       backdrop-filter: blur(12px);
       border-right: 1px solid rgba(255, 255, 255, 0.15);
       padding: 25px 20px;
       position: fixed;
-      left: -270px;
+      left: -280px;
       top: 0;
       height: 100vh;
       overflow-y: auto;
@@ -358,6 +358,7 @@
       align-items: center;
       gap: 8px;
       transition: 0.3s;
+      cursor: pointer;
     }
 
     .btn-wa { background: #0d6cff; }
@@ -365,6 +366,156 @@
     .btn-share { background: #1f1f1f; color: #3b82f6; }
 
     .btn:hover { transform: translateY(-3px); }
+
+    /* ========= SKILL SECTION PREMIUM - LEBIH BESAR & ANIMASI ========= */
+    .skills-showcase {
+      background: linear-gradient(145deg, #080808 0%, #121212 100%);
+      padding: 40px 20px;
+      margin: 20px 0 0;
+      border-top: 2px solid rgba(255,51,51,0.5);
+      border-bottom: 2px solid rgba(59,130,246,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills-showcase::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+      animation: shine 8s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      20% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    .skills-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .skills-header .section-title {
+      font-size: 2rem;
+      text-align: center;
+      border-left: none;
+      justify-content: center;
+      background: linear-gradient(135deg, #fff, #ff4444, #AD4AE7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .skill-card {
+      background: linear-gradient(135deg, rgba(20,20,35,0.9), rgba(10,10,20,0.95));
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      padding: 32px 20px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 15px 35px -10px rgba(0,0,0,0.6);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff0000, #AD4AE7, #3b82f6);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .skill-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(255,70,70,0.5);
+      box-shadow: 0 25px 45px -12px rgba(255,0,0,0.3);
+    }
+
+    /* Icon wrapper dengan animasi putar saat diklik */
+    .skill-icon-wrapper {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #2a2a3a, #0a0a12);
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.2);
+      transition: all 0.3s;
+      box-shadow: 0 0 20px rgba(173,74,231,0.3);
+    }
+
+    .skill-icon {
+      font-size: 52px;
+      color: #fff;
+      filter: drop-shadow(0 0 8px rgba(173,74,231,0.6));
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    /* Animasi spin saat diklik */
+    .skill-card.spin-animation .skill-icon {
+      animation: iconSpin 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes iconSpin {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(360deg) scale(1.2); filter: drop-shadow(0 0 15px #ff3366); }
+      100% { transform: rotate(720deg) scale(1); }
+    }
+
+    .skill-card h4 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #ffffff, #ffaa66, #ff6666);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .skill-desc {
+      font-size: 0.9rem;
+      color: #bbb;
+      line-height: 1.5;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 30px;
+      font-size: 0.7rem;
+      color: #ff8888;
+      border: 1px solid rgba(255,68,68,0.3);
+    }
 
     /* Info Panel Original */
     .info-panel {
@@ -460,7 +611,7 @@
 
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 20px;
       padding: 0 16px;
       margin-top: 20px;
@@ -490,7 +641,6 @@
       font-weight: 600;
     }
 
-    /* Input Styles */
     .input-group {
       margin-bottom: 15px;
     }
@@ -529,7 +679,6 @@
       gap: 8px;
     }
 
-    /* Result Area */
     .result-area {
       margin-top: 15px;
       padding: 15px;
@@ -569,7 +718,6 @@
       font-size: 0.9rem;
     }
 
-    /* Progress */
     .progress-container {
       margin-top: 10px;
       display: none;
@@ -589,7 +737,6 @@
       transition: width 0.3s;
     }
 
-    /* Logs */
     .logs-area {
       background: rgba(0,0,0,0.5);
       border-radius: 8px;
@@ -604,7 +751,6 @@
     .log-error { color: #ff4444; }
     .log-info { color: #fff; }
 
-    /* Messages */
     .error-message,
     .success-message {
       padding: 10px;
@@ -613,19 +759,9 @@
       display: none;
     }
 
-    .error-message {
-      background: rgba(255,0,0,0.1);
-      border: 1px solid #ff4444;
-      color: #ff8888;
-    }
+    .error-message { background: rgba(255,0,0,0.1); border: 1px solid #ff4444; color: #ff8888; }
+    .success-message { background: rgba(0,255,0,0.1); border: 1px solid #00ff00; color: #88ff88; }
 
-    .success-message {
-      background: rgba(0,255,0,0.1);
-      border: 1px solid #00ff00;
-      color: #88ff88;
-    }
-
-    /* Footer Original */
     .catbox-note {
       font-size: 0.75rem;
       color: #444;
@@ -636,49 +772,31 @@
       margin-top: 20px;
     }
 
-    /* Responsive */
     @media (min-width: 1024px) {
-      .main-content {
-        margin-left: 270px;
-      }
-      .sidebar {
-        left: 0;
-      }
-      .menu-toggle {
-        display: none;
-      }
+      .main-content { margin-left: 280px; }
+      .sidebar { left: 0; }
+      .menu-toggle { display: none; }
     }
 
     @media (max-width: 600px) {
       .profile-pic-wrapper { width: 130px; height: 130px; }
       .identity h1 { font-size: 2rem; }
-      .btn { padding: 10px 18px; }
-      .likes-count { font-size: 2.8rem; }
-      .tools-grid { grid-template-columns: 1fr; }
-      .download-options { grid-template-columns: 1fr; }
+      .skill-icon-wrapper { width: 80px; height: 80px; }
+      .skill-icon { font-size: 42px; }
+      .skill-card h4 { font-size: 1.3rem; }
+      .skills-grid { gap: 20px; }
     }
   </style>
 </head>
 <body>
-  <!-- Menu Toggle Button -->
-  <div class="menu-toggle" id="menuToggle">
-    <i class="fas fa-bars"></i>
-  </div>
-
-  <!-- Sidebar Overlay -->
+  <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-  <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="logo-container">
-        <div class="logo-ring"></div>
-        <img src="https://files.catbox.moe/90fl8e.jpg" class="logo" alt="Logo">
-      </div>
+      <div class="logo-container"><div class="logo-ring"></div><img src="https://files.catbox.moe/90fl8e.jpg" class="logo" alt="Logo"></div>
       <div class="app-title">Dyrexyyyy</div>
-      <div class="access-info"><b><i>Multi Tools</i></b></div>
+      <div class="access-info"><b><i>Multi Tools Pro</i></b></div>
     </div>
-    
     <ul class="nav-menu">
       <li class="nav-item"><a class="nav-link active" onclick="showSection('profile')"><i class="fas fa-user"></i>Profile</a></li>
       <li class="nav-item"><a class="nav-link" onclick="showSection('qr')"><i class="fas fa-qrcode"></i>QR Generator</a></li>
@@ -688,39 +806,32 @@
     </ul>
   </div>
 
-  <!-- Main Content -->
   <div class="main-content">
-    <!-- Banner Original -->
     <div class="banner">
-      <video autoplay loop muted playsinline id="bannerVideo">
-        <source src="https://files.catbox.moe/xlt0u4.mp4" type="video/mp4">
-      </video>
+      <video autoplay loop muted playsinline id="bannerVideo"><source src="https://files.catbox.moe/xlt0u4.mp4" type="video/mp4"></video>
       <div class="banner-overlay"></div>
-      <div class="sound-hint" id="soundHint">
-        <i class="fas fa-volume-up"></i> Klik untuk suara
-      </div>
+      <div class="sound-hint"><i class="fas fa-volume-up"></i> Klik untuk suara</div>
     </div>
 
-    <!-- Profile Section Original -->
-    <div class="profile-section" id="profile-section">
-      <div class="profile-pic-wrapper">
-        <img class="profile-pic" src="https://files.catbox.moe/t7ld3k.png" alt="profile">
-      </div>
-      <div class="identity">
-        <h1>ADY HANSOME</h1>
-        <div class="username">@dyrexyyyy</div>
-        <div class="phone"><i class="fas fa-phone-alt" style="color: #3b82f6;"></i> +62 857-6320-1429</div>
-      </div>
+    <div class="profile-section">
+      <div class="profile-pic-wrapper"><img class="profile-pic" src="https://files.catbox.moe/t7ld3k.png" alt="profile"></div>
+      <div class="identity"><h1>ADY HANSOME</h1><div class="username">@dyrexyyyy</div><div class="phone"><i class="fas fa-phone-alt" style="color: #3b82f6;"></i> +62 857-6320-1429</div></div>
     </div>
 
-    <!-- Action Buttons Original -->
     <div class="action-buttons">
       <a href="https://wa.me/6285763201429" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i>Kirim pesan</a>
       <a href="tel:+6285763201429" class="btn btn-call"><i class="fas fa-phone-alt"></i>Telepon</a>
       <a href="#" class="btn btn-share" onclick="shareProfile()"><i class="fas fa-share-alt"></i>Bagikan</a>
     </div>
 
-    <!-- Info Panel Original -->
+    <!-- KEAHLIAN SECTION PREMIUM - BESAR & ANIMASI PUTAR SAAT DIKLIK -->
+    <div class="skills-showcase">
+      <div class="skills-header">
+        <div class="section-title" style="border-left: none; justify-content: center;"><i class="fas fa-crown" style="color: #ffaa44;"></i> MASTERY & KEAHLIAN</div>
+      </div>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+
     <div class="info-panel">
       <div class="section-title"><i class="fab fa-spotify" style="color: #ef4444;"></i> 3 lagu favoritku</div>
       <div class="spotify-embed-list">
@@ -730,438 +841,120 @@
       </div>
     </div>
 
-    <!-- Total Likes Original -->
-    <div class="total-likes">
-      <div class="likes-count">2.030.000</div>
-      <div class="likes-label"><i class="fas fa-heart" style="color: #ef4444;"></i> total penyuka</div>
-    </div>
+    <div class="total-likes"><div class="likes-count">2.030.000</div><div class="likes-label"><i class="fas fa-heart" style="color: #ef4444;"></i> total penyuka</div></div>
 
-    <!-- Redeem Section Original -->
     <div class="redeem-section">
-      <div class="redeem-title" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">
-        <i class="fas fa-gift" style="color: #ef4444;"></i> LINK DOWNLOAD FF BETA
-      </div>
-      <div class="redeem-code-box">
-        <span id="redeemCode">https://gofile.io/d/czlJWz</span>
-        <button class="btn-copy" onclick="copyCode()"><i class="fas fa-copy"></i> Salin</button>
-      </div>
+      <div class="redeem-title" style="font-size: 1.5rem; font-weight: 600;"><i class="fas fa-gift" style="color: #ef4444;"></i> LINK DOWNLOAD FF BETA</div>
+      <div class="redeem-code-box"><span id="redeemCode">https://gofile.io/d/czlJWz</span><button class="btn-copy" onclick="copyCode()"><i class="fas fa-copy"></i> Salin</button></div>
     </div>
 
-    <!-- Tools Section -->
     <div class="tools-section" id="tools-section">
       <div class="section-title"><i class="fas fa-tools" style="color: #ef4444;"></i> Tools Lainnya</div>
-      
-      <!-- Tools Grid -->
-      <div class="tools-grid" id="tools-container">
-        <!-- Tools akan diisi oleh JavaScript -->
-      </div>
+      <div class="tools-grid" id="tools-container"></div>
     </div>
 
-    <!-- Footer Original -->
-    <div class="catbox-note">
-      <i class="fas fa-image" style="color: #3b82f6;"></i> 2026-2027 © dyrexyyyy DNCZ ADY HANSOME <i class="fas fa-video" style="color: #ef4444;"></i> TERIMAKASIH
-    </div>
+    <div class="catbox-note"><i class="fas fa-image" style="color: #3b82f6;"></i> 2026-2027 © dyrexyyyy DNCZ ADY HANSOME <i class="fas fa-video" style="color: #ef4444;"></i> TERIMAKASIH</div>
   </div>
 
   <script>
-    // Sidebar Toggle
+    // SOUND EFFECT GLOBAL
+    const clickSound = new Audio('https://files.catbox.moe/9xvl6i.mp3');
+    clickSound.preload = 'auto';
+    clickSound.volume = 0.5;
+    function playClickFx() { const clone = clickSound.cloneNode(); clone.volume = 0.5; clone.play().catch(e => console.log); }
+
+    function attachSoundToInteractive() {
+      document.querySelectorAll('button, .btn, .btn-action, .btn-copy, .nav-link, .menu-toggle, .download-btn, .skill-card').forEach(el => {
+        if(!el.hasAttribute('data-sound-attached')) {
+          el.setAttribute('data-sound-attached', 'true');
+          el.addEventListener('click', (e) => { playClickFx(); });
+        }
+      });
+    }
+    new MutationObserver(() => attachSoundToInteractive()).observe(document.body, { childList: true, subtree: true });
+    
+    // Sidebar
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebarOverlay');
-
-    function toggleSidebar() {
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    }
-
+    function toggleSidebar() { sidebar.classList.toggle('active'); overlay.classList.toggle('active'); playClickFx(); }
     menuToggle.addEventListener('click', toggleSidebar);
     overlay.addEventListener('click', toggleSidebar);
-
-    // Video Unmute
-    function unmuteVideo() {
-      const video = document.getElementById('bannerVideo');
-      const hint = document.getElementById('soundHint');
-      if (video) {
-        video.muted = false;
-        video.volume = 0.5;
-      }
-      if (hint) hint.style.display = 'none';
-    }
-
+    
+    function unmuteVideo() { const video = document.getElementById('bannerVideo'); if(video) video.muted = false; document.getElementById('soundHint')?.remove(); }
     document.addEventListener('click', unmuteVideo, { once: true });
-    document.addEventListener('touchstart', unmuteVideo, { once: true });
-
-    // Share Profile
-    function shareProfile() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'ADY HANSOME',
-          text: '@dyrexyyyy',
-          url: window.location.href
+    
+    function shareProfile() { playClickFx(); if(navigator.share) navigator.share({title:'ADY HANSOME',text:'@dyrexyyyy',url:window.location.href}); else alert('Salin link: '+window.location.href); }
+    function copyCode() { const code = document.getElementById('redeemCode').innerText; navigator.clipboard.writeText(code); alert('Kode disalin: '+code); playClickFx(); }
+    
+    // Data Keahlian Premium dengan deskripsi detail
+    const skillsData = [
+      { name: "EDITING VIDIO", icon: "fas fa-video", desc: "Master CapCut, Premiere Pro & After Effects. Visual efek kelas atas." },
+      { name: "CODING", icon: "fas fa-laptop-code", desc: "Fullstack Developer • HTML/CSS/JS • PHP • Python • Framework modern." },
+      { name: "MODDER", icon: "fas fa-gamepad", desc: "Mod game Android/PC, patch custom, unlock premium." },
+      { name: "REMODER", icon: "fas fa-code-branch", desc: "Reverse engineering, bypass & optimization mod." },
+      { name: "WHATSAPP SERVICE", icon: "fab fa-whatsapp", desc: "Bot WhatsApp, auto reply, API integration, gateway." },
+      { name: "NUMBER SERVICE", icon: "fas fa-phone-alt", desc: "Virtual Number, OTP verif, global SMS service." },
+      { name: "CONTENT CREATOR", icon: "fas fa-camera-retro", desc: "Video editor, script writer, thumbnail designer, kreator digital." }
+    ];
+    
+    function buildSkills() {
+      const container = document.getElementById('skillsGrid');
+      container.innerHTML = '';
+      skillsData.forEach(skill => {
+        const card = document.createElement('div');
+        card.className = 'skill-card';
+        card.innerHTML = `
+          <div class="skill-icon-wrapper"><i class="${skill.icon} skill-icon"></i></div>
+          <h4>${skill.name}</h4>
+          <div class="skill-desc">${skill.desc}</div>
+          <div class="skill-badge"><i class="fas fa-check-circle"></i> certified expert</div>
+        `;
+        // Animasi putar saat diklik pada icon
+        card.addEventListener('click', (e) => {
+          e.stopPropagation();
+          card.classList.add('spin-animation');
+          setTimeout(() => card.classList.remove('spin-animation'), 700);
         });
-      } else {
-        alert('Salin link: ' + window.location.href);
-      }
-    }
-
-    // Copy Code
-    function copyCode() {
-      const code = document.getElementById('redeemCode').innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        alert('Kode disalin: ' + code);
+        container.appendChild(card);
       });
     }
-
-    // Show Tools Section
+    buildSkills();
+    
+    // showSection dan tools
     function showSection(tool) {
+      playClickFx();
       const toolsContainer = document.getElementById('tools-container');
       let content = '';
-
       switch(tool) {
-        case 'qr':
-          content = qrGeneratorHTML();
-          break;
-        case 'tiktok':
-          content = tiktokDownloaderHTML();
-          break;
-        case 'iphone':
-          content = iphoneQuoteHTML();
-          break;
-        case 'ngl':
-          content = nglSpamHTML();
-          break;
-        default:
-          content = '';
+        case 'qr': content = qrGeneratorHTML(); break;
+        case 'tiktok': content = tiktokDownloaderHTML(); break;
+        case 'iphone': content = iphoneQuoteHTML(); break;
+        case 'ngl': content = nglSpamHTML(); break;
+        default: content = '';
       }
-
       toolsContainer.innerHTML = content;
-      
-      // Scroll ke tools section
       document.getElementById('tools-section').scrollIntoView({ behavior: 'smooth' });
-
-      // Update active class
       document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-      event.target.classList.add('active');
-
-      // Close sidebar on mobile
-      if (window.innerWidth < 1024) toggleSidebar();
+      if(event && event.target) event.target.classList.add('active');
+      setTimeout(attachSoundToInteractive, 100);
+      if(window.innerWidth < 1024) toggleSidebar();
     }
-
-    // QR Generator HTML
-    function qrGeneratorHTML() {
-      return `
-        <div class="tool-card">
-          <div class="tool-header">
-            <i class="fas fa-qrcode"></i>
-            <h3>QR Generator</h3>
-          </div>
-          <div class="input-group">
-            <label>Teks atau URL</label>
-            <input type="text" id="qr-text" placeholder="https://example.com">
-          </div>
-          <button class="btn-action" onclick="generateQR()">
-            <i class="fas fa-bolt"></i> Generate
-          </button>
-          <div id="qr-result" class="result-area">
-            <div id="qrcode"></div>
-            <button class="btn-action" onclick="downloadQR()" style="margin-top: 10px;">
-              <i class="fas fa-download"></i> Download
-            </button>
-          </div>
-        </div>
-      `;
-    }
-
-    // TikTok Downloader HTML
-    function tiktokDownloaderHTML() {
-      return `
-        <div class="tool-card">
-          <div class="tool-header">
-            <i class="fab fa-tiktok"></i>
-            <h3>TikTok Downloader</h3>
-          </div>
-          <div class="input-group">
-            <label>URL TikTok</label>
-            <input type="text" id="tiktok-url" placeholder="https://www.tiktok.com/@user/video/...">
-          </div>
-          <button class="btn-action" onclick="downloadTikTok()">
-            <i class="fas fa-download"></i> Download
-          </button>
-          <div id="tiktok-progress" class="progress-container">
-            <div class="progress-bar"><div class="progress-fill" id="tiktok-progress-fill"></div></div>
-            <div class="progress-text" id="tiktok-progress-text">Mempersiapkan...</div>
-          </div>
-          <div id="tiktok-result" class="result-area">
-            <div class="download-options">
-              <a href="#" class="download-btn" id="download-video">Video</a>
-              <a href="#" class="download-btn" id="download-audio">Audio</a>
-            </div>
-          </div>
-          <div id="tiktok-error" class="error-message"></div>
-          <div id="tiktok-success" class="success-message"></div>
-        </div>
-      `;
-    }
-
-    // iPhone Quote HTML
-    function iphoneQuoteHTML() {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      
-      return `
-        <div class="tool-card">
-          <div class="tool-header">
-            <i class="fas fa-mobile-alt"></i>
-            <h3>iPhone Quote</h3>
-          </div>
-          <div class="input-group">
-            <label>Jam</label>
-            <input type="text" id="quote-time" value="${hours}:${minutes}">
-          </div>
-          <div class="input-group">
-            <label>Baterai</label>
-            <input type="number" id="quote-battery" placeholder="40" min="0" max="100">
-          </div>
-          <div class="input-group">
-            <label>Provider</label>
-            <input type="text" id="quote-carrier" placeholder="Telkomsel">
-          </div>
-          <div class="input-group">
-            <label>Pesan</label>
-            <textarea id="quote-message" rows="2" placeholder="Hai..."></textarea>
-          </div>
-          <button class="btn-action" onclick="generateQuote()">
-            <i class="fas fa-rocket"></i> Generate
-          </button>
-          <div id="quote-loading" style="display: none; text-align: center;">🔄 Memproses...</div>
-          <div id="quote-result" class="result-area">
-            <img id="quote-preview" style="max-width: 100%; border-radius: 8px;">
-            <a href="#" class="download-btn" id="quote-download" style="display: block; margin-top: 10px;">Download</a>
-          </div>
-          <div id="quote-error" class="error-message"></div>
-        </div>
-      `;
-    }
-
-    // NGL Spam HTML
-    function nglSpamHTML() {
-      return `
-        <div class="tool-card">
-          <div class="tool-header">
-            <i class="fas fa-message"></i>
-            <h3>NGL Spam</h3>
-          </div>
-          <div class="input-group">
-            <label>Username Target</label>
-            <input type="text" id="ngl-target" placeholder="username123">
-          </div>
-          <div class="input-group">
-            <label>Pesan</label>
-            <textarea id="ngl-message" rows="2" placeholder="Pesan..."></textarea>
-          </div>
-          <div class="input-group">
-            <label>Jumlah</label>
-            <input type="number" id="ngl-count" value="5" min="1" max="20">
-          </div>
-          <button class="btn-action" onclick="startNGLSpam()">
-            <i class="fas fa-rocket"></i> Mulai
-          </button>
-          <div class="progress-container" id="ngl-progress">
-            <div class="progress-bar"><div class="progress-fill" id="ngl-progress-fill"></div></div>
-          </div>
-          <div class="logs-area" id="ngl-logs">
-            <div class="log-info">⏳ Menunggu...</div>
-          </div>
-        </div>
-      `;
-    }
-
-    // QR Generator Functions
+    
+    function qrGeneratorHTML() { return `<div class="tool-card"><div class="tool-header"><i class="fas fa-qrcode"></i><h3>QR Generator</h3></div><div class="input-group"><label>Teks atau URL</label><input type="text" id="qr-text" placeholder="https://example.com"></div><button class="btn-action" onclick="generateQR()"><i class="fas fa-bolt"></i> Generate</button><div id="qr-result" class="result-area"><div id="qrcode"></div><button class="btn-action" onclick="downloadQR()" style="margin-top:10px;"><i class="fas fa-download"></i> Download</button></div></div>`; }
+    function tiktokDownloaderHTML() { return `<div class="tool-card"><div class="tool-header"><i class="fab fa-tiktok"></i><h3>TikTok Downloader</h3></div><div class="input-group"><label>URL TikTok</label><input type="text" id="tiktok-url" placeholder="https://www.tiktok.com/@user/video/..."></div><button class="btn-action" onclick="downloadTikTok()"><i class="fas fa-download"></i> Download</button><div id="tiktok-progress" class="progress-container"><div class="progress-bar"><div class="progress-fill" id="tiktok-progress-fill"></div></div><div class="progress-text" id="tiktok-progress-text">Mempersiapkan...</div></div><div id="tiktok-result" class="result-area"><div class="download-options"><a href="#" class="download-btn" id="download-video">Video</a><a href="#" class="download-btn" id="download-audio">Audio</a></div></div><div id="tiktok-error" class="error-message"></div><div id="tiktok-success" class="success-message"></div></div>`; }
+    function iphoneQuoteHTML() { const now=new Date(); const hours=String(now.getHours()).padStart(2,'0'); const minutes=String(now.getMinutes()).padStart(2,'0'); return `<div class="tool-card"><div class="tool-header"><i class="fas fa-mobile-alt"></i><h3>iPhone Quote</h3></div><div class="input-group"><label>Jam</label><input type="text" id="quote-time" value="${hours}:${minutes}"></div><div class="input-group"><label>Baterai</label><input type="number" id="quote-battery" placeholder="40"></div><div class="input-group"><label>Provider</label><input type="text" id="quote-carrier" placeholder="Telkomsel"></div><div class="input-group"><label>Pesan</label><textarea id="quote-message" rows="2" placeholder="Hai..."></textarea></div><button class="btn-action" onclick="generateQuote()"><i class="fas fa-rocket"></i> Generate</button><div id="quote-loading" style="display:none; text-align:center;">🔄 Memproses...</div><div id="quote-result" class="result-area"><img id="quote-preview" style="max-width:100%; border-radius:8px;"><a href="#" class="download-btn" id="quote-download" style="display:block; margin-top:10px;">Download</a></div><div id="quote-error" class="error-message"></div></div>`; }
+    function nglSpamHTML() { return `<div class="tool-card"><div class="tool-header"><i class="fas fa-message"></i><h3>NGL Spam</h3></div><div class="input-group"><label>Username Target</label><input type="text" id="ngl-target" placeholder="username123"></div><div class="input-group"><label>Pesan</label><textarea id="ngl-message" rows="2" placeholder="Pesan..."></textarea></div><div class="input-group"><label>Jumlah</label><input type="number" id="ngl-count" value="5" min="1" max="20"></div><button class="btn-action" onclick="startNGLSpam()"><i class="fas fa-rocket"></i> Mulai</button><div class="progress-container" id="ngl-progress"><div class="progress-bar"><div class="progress-fill" id="ngl-progress-fill"></div></div></div><div class="logs-area" id="ngl-logs"><div class="log-info">⏳ Menunggu...</div></div></div>`; }
+    
     let qrInstance;
-
-    function generateQR() {
-      const text = document.getElementById('qr-text').value.trim();
-      const qrContainer = document.getElementById('qrcode');
-      const resultArea = document.getElementById('qr-result');
-
-      if (!text) {
-        alert('Masukkan teks atau URL!');
-        return;
-      }
-
-      qrContainer.innerHTML = '';
-      qrInstance = new QRCode(qrContainer, {
-        text: text,
-        width: 200,
-        height: 200
-      });
-
-      resultArea.classList.add('show');
-    }
-
-    function downloadQR() {
-      const canvas = document.querySelector('#qrcode canvas');
-      if (!canvas) return;
-
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'QR_Code.png';
-      link.click();
-    }
-
-    // TikTok Downloader Functions
-    async function downloadTikTok() {
-      const url = document.getElementById('tiktok-url').value.trim();
-      const progress = document.getElementById('tiktok-progress');
-      const progressFill = document.getElementById('tiktok-progress-fill');
-      const progressText = document.getElementById('tiktok-progress-text');
-      const result = document.getElementById('tiktok-result');
-      const error = document.getElementById('tiktok-error');
-      const success = document.getElementById('tiktok-success');
-
-      if (!url) {
-        showError(error, 'Masukkan URL TikTok!');
-        return;
-      }
-
-      progress.style.display = 'block';
-      result.classList.remove('show');
-      error.style.display = 'none';
-      success.style.display = 'none';
-
-      progressFill.style.width = '20%';
-      progressText.textContent = 'Mengambil data...';
-
-      try {
-        const response = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
-        const data = await response.json();
-
-        progressFill.style.width = '80%';
-        progressText.textContent = 'Memproses...';
-
-        if (data.data) {
-          document.getElementById('download-video').href = data.data.play || data.data.wmplay;
-          document.getElementById('download-audio').href = data.data.music;
-          
-          progressFill.style.width = '100%';
-          progressText.textContent = 'Selesai!';
-          
-          setTimeout(() => {
-            progress.style.display = 'none';
-            result.classList.add('show');
-            showSuccess(success, 'Siap di download!');
-          }, 500);
-        }
-      } catch (err) {
-        progress.style.display = 'none';
-        showError(error, 'Gagal download');
-      }
-    }
-
-    // iPhone Quote Functions
-    async function generateQuote() {
-      const time = document.getElementById('quote-time').value;
-      const battery = document.getElementById('quote-battery').value;
-      const carrier = document.getElementById('quote-carrier').value;
-      const message = document.getElementById('quote-message').value;
-      const loading = document.getElementById('quote-loading');
-      const result = document.getElementById('quote-result');
-      const error = document.getElementById('quote-error');
-      const preview = document.getElementById('quote-preview');
-      const download = document.getElementById('quote-download');
-
-      if (!time || !battery || !carrier || !message) {
-        showError(error, 'Semua field harus diisi!');
-        return;
-      }
-
-      loading.style.display = 'block';
-      result.classList.remove('show');
-      error.style.display = 'none';
-
-      const url = `https://brat.siputzx.my.id/iphone-quoted?time=${encodeURIComponent(time)}&batteryPercentage=${battery}&carrierName=${encodeURIComponent(carrier)}&messageText=${encodeURIComponent(message)}&emojiStyle=apple`;
-
-      preview.onload = function() {
-        loading.style.display = 'none';
-        result.classList.add('show');
-        download.href = url;
-        download.style.display = 'block';
-      };
-
-      preview.onerror = function() {
-        loading.style.display = 'none';
-        showError(error, 'Gagal memuat gambar');
-      };
-
-      preview.src = url;
-    }
-
-    // NGL Spam Functions
-    async function startNGLSpam() {
-      const target = document.getElementById('ngl-target').value.trim();
-      const message = document.getElementById('ngl-message').value.trim();
-      const count = parseInt(document.getElementById('ngl-count').value);
-      const logs = document.getElementById('ngl-logs');
-      const progress = document.getElementById('ngl-progress');
-      const progressFill = document.getElementById('ngl-progress-fill');
-
-      if (!target || !message) {
-        logs.innerHTML = '<div class="log-error">❌ Semua field harus diisi!</div>';
-        return;
-      }
-
-      logs.innerHTML = '<div class="log-info">🚀 Memulai spam...</div>';
-      progress.style.display = 'block';
-
-      for (let i = 1; i <= count; i++) {
-        const percent = Math.round((i / count) * 100);
-        progressFill.style.width = percent + '%';
-        
-        logs.innerHTML += `<div class="log-info">📤 Mengirim ${i}/${count}...</div>`;
-        logs.scrollTop = logs.scrollHeight;
-
-        try {
-          const response = await fetch('https://ngl.link/api/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              username: target,
-              question: message,
-              deviceId: 'web'
-            })
-          });
-
-          if (response.ok) {
-            logs.innerHTML += `<div class="log-success">✅ Pesan ${i} terkirim</div>`;
-          } else {
-            logs.innerHTML += `<div class="log-error">❌ Pesan ${i} gagal</div>`;
-          }
-        } catch (err) {
-          logs.innerHTML += `<div class="log-error">❌ Error</div>`;
-        }
-
-        if (i < count) {
-          await new Promise(resolve => setTimeout(resolve, 2000));
-        }
-      }
-
-      progress.style.display = 'none';
-      logs.innerHTML += '<div class="log-success">✅ Selesai!</div>';
-    }
-
-    // Helper Functions
-    function showError(element, message) {
-      element.textContent = '❌ ' + message;
-      element.style.display = 'block';
-      setTimeout(() => element.style.display = 'none', 3000);
-    }
-
-    function showSuccess(element, message) {
-      element.textContent = '✅ ' + message;
-      element.style.display = 'block';
-      setTimeout(() => element.style.display = 'none', 3000);
-    }
+    function generateQR() { const text=document.getElementById('qr-text').value.trim(); if(!text){alert('Masukkan teks!');return;} document.getElementById('qrcode').innerHTML=''; qrInstance=new QRCode(document.getElementById('qrcode'),{text:text,width:200,height:200}); document.getElementById('qr-result').classList.add('show'); playClickFx(); }
+    function downloadQR() { const canvas=document.querySelector('#qrcode canvas'); if(!canvas)return; const a=document.createElement('a'); a.href=canvas.toDataURL('image/png'); a.download='QR_Code.png'; a.click(); playClickFx(); }
+    async function downloadTikTok(){ const url=document.getElementById('tiktok-url').value.trim(); const prog=document.getElementById('tiktok-progress'); const fill=document.getElementById('tiktok-progress-fill'); const textP=document.getElementById('tiktok-progress-text'); const resDiv=document.getElementById('tiktok-result'); const err=document.getElementById('tiktok-error'); if(!url){showError(err,'Masukkan URL!');return;} prog.style.display='block'; resDiv.classList.remove('show'); fill.style.width='20%'; textP.textContent='Mengambil data...'; try{ const resp=await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`); const data=await resp.json(); fill.style.width='80%'; textP.textContent='Memproses...'; if(data.data){ document.getElementById('download-video').href=data.data.play||data.data.wmplay; document.getElementById('download-audio').href=data.data.music; fill.style.width='100%'; textP.textContent='Selesai!'; setTimeout(()=>{prog.style.display='none';resDiv.classList.add('show');showSuccess(document.getElementById('tiktok-success'),'Siap download!');},500);} else throw new Error();} catch(e){prog.style.display='none'; showError(err,'Gagal download');} }
+    async function generateQuote(){ const time=document.getElementById('quote-time').value; const bat=document.getElementById('quote-battery').value; const carrier=document.getElementById('quote-carrier').value; const msg=document.getElementById('quote-message').value; const loading=document.getElementById('quote-loading'); const result=document.getElementById('quote-result'); const error=document.getElementById('quote-error'); const preview=document.getElementById('quote-preview'); const download=document.getElementById('quote-download'); if(!time||!bat||!carrier||!msg){showError(error,'Isi semua!');return;} loading.style.display='block'; result.classList.remove('show'); error.style.display='none'; const url=`https://brat.siputzx.my.id/iphone-quoted?time=${encodeURIComponent(time)}&batteryPercentage=${bat}&carrierName=${encodeURIComponent(carrier)}&messageText=${encodeURIComponent(msg)}&emojiStyle=apple`; preview.onload=()=>{loading.style.display='none'; result.classList.add('show'); download.href=url; download.style.display='block';}; preview.onerror=()=>{loading.style.display='none'; showError(error,'Gagal memuat gambar');}; preview.src=url; }
+    async function startNGLSpam(){ const target=document.getElementById('ngl-target').value.trim(); const msg=document.getElementById('ngl-message').value.trim(); const count=parseInt(document.getElementById('ngl-count').value); const logs=document.getElementById('ngl-logs'); const progress=document.getElementById('ngl-progress'); const fill=document.getElementById('ngl-progress-fill'); if(!target||!msg){logs.innerHTML='<div class="log-error">❌ Isi semua!</div>';return;} logs.innerHTML='<div class="log-info">🚀 Memulai spam...</div>'; progress.style.display='block'; for(let i=1;i<=count;i++){ fill.style.width=Math.round((i/count)*100)+'%'; logs.innerHTML+=`<div class="log-info">📤 Mengirim ${i}/${count}...</div>`; logs.scrollTop=logs.scrollHeight; try{ const resp=await fetch('https://ngl.link/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:target,question:msg,deviceId:'web'})}); if(resp.ok) logs.innerHTML+=`<div class="log-success">✅ Pesan ${i} terkirim</div>`; else logs.innerHTML+=`<div class="log-error">❌ Pesan ${i} gagal</div>`; } catch(e){ logs.innerHTML+=`<div class="log-error">❌ Error</div>`; } if(i<count) await new Promise(r=>setTimeout(r,2000)); } progress.style.display='none'; logs.innerHTML+='<div class="log-success">✅ Selesai!</div>'; }
+    function showError(el,msg){ el.textContent='❌ '+msg; el.style.display='block'; setTimeout(()=>el.style.display='none',3000); }
+    function showSuccess(el,msg){ el.textContent='✅ '+msg; el.style.display='block'; setTimeout(()=>el.style.display='none',3000); }
+    attachSoundToInteractive();
   </script>
 </body>
 </html>
